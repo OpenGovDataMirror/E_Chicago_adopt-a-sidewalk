@@ -1,0 +1,9 @@
+#IWCONTENT
+  #loader{:style => "display: none;"}
+    = image_tag "ajax-loader.gif"
+  #info_window
+    - flash.each do |key, message|
+      - if message.is_a? String
+        %div{:id => key}
+          = message
+    = yield

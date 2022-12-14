@@ -1,0 +1,14 @@
+#forgot_pw_box{:style => 'padding: 30px'}
+  %h2
+    = t("titles.edit_profile")
+  = form_for resource, :as => resource_name, :url => password_path(resource_name), :html => {:method => :put, :class => 'form wide'} do |f|
+    = devise_error_messages!
+    = f.hidden_field :reset_password_token
+    %ul.horizontal_items
+      %li
+        = f.label :password, t("labels.password_new")
+        = f.password_field "password"
+      %li
+        = f.label :password_confirmation, t("labels.password_confirmation")
+        = f.password_field :password_confirmation
+    = f.submit t("buttons.change_password")
